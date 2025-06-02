@@ -7,6 +7,7 @@ class AdvertisementStatusChoices(models.TextChoices):
 
     OPEN = "OPEN", "Открыто"
     CLOSED = "CLOSED", "Закрыто"
+    DRAFT = "DRAFT", "Черновик"
 
 
 class Advertisement(models.Model):
@@ -27,12 +28,6 @@ class Advertisement(models.Model):
     )
     updated_at = models.DateTimeField(
         auto_now=True
-    )
-
-    DRAFT = "DRAFT", "Черновик"
-    status = models.TextField(
-        choices=[*AdvertisementStatusChoices.choices, DRAFT],
-        default=AdvertisementStatusChoices.OPEN
     )
 
 
